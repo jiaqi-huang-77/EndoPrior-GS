@@ -21,7 +21,7 @@ class DataLoader:
     image_size = (640, 512)
 
     def __init__(self, datadir, downsample=1.0, test_every=8, *,
-                 use_prior_initialisation=True, initial_point_budget=20_000,
+                 use_prior_initialisation=True, initial_point_budget=25_000,
                  initialise_from_all_frames=True,
                  prior_uniform_mix=0.45, prior_erosion_kernel=9,
                  prior_brightness_threshold=0.85, prior_brightness_percentile=97.0,

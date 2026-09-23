@@ -131,7 +131,7 @@ class ModelParams(ParamGroup):
         self.disable_prior_temporal_weighting = False
         self.camera_extent = 10.0
         self.coarse_only = False
-        self.initial_point_budget = 20_000
+        self.initial_point_budget = 25_000
         self.initialise_from_all_frames = True
         self.prior_uniform_mix = 0.45
         self.prior_erosion_kernel = 9

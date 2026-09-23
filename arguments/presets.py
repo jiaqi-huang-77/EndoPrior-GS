@@ -9,7 +9,7 @@ from copy import deepcopy
 
 
 _ENDOPRIOR_MODEL = {
-    "initial_point_budget": 20_000,
+    "initial_point_budget": 25_000,
     "initialise_from_all_frames": True,
     "prior_uniform_mix": 0.45,
     "prior_erosion_kernel": 9,
