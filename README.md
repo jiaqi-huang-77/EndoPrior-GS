@@ -44,13 +44,13 @@ data/
 
 **EndoNeRF:** use the prepared sequences containing `images/`, `depth/`, `masks/` and `poses_bounds.npy`. No additional conversion is needed.
 
-**SCARED:** preprocess the extracted raw keyframes once. Repeat for datasets 2, 3, 6 and 7:
+**SCARED:** if each keyframe already contains `data/left_finalpass/`, `data/disparity/`, `data/frame_data/` and `data/reprojection_data/`, go straight to training. Camera loading and Gaussian initialisation run automatically.
+
+Only when starting from raw SCARED videos and scene points, convert each keyframe once:
 
 ```bash
 python -m datasets.scared data/scared/dataset_1/keyframe_1
 ```
-
-Already prepared keyframes can be checked with `--validate-only`.
 
 **StereoMIS:** prepare P2_7 and P2_8 from raw sequences containing the stereo MP4, `StereoCalibration.ini`, `groundtruth.txt` and `masks/`:
 
