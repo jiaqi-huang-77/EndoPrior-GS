@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Data, checkpoints and generated output
+data/
+output/
+outputs/
+checkpoints/
+tensorboard_3d/
+screenshots/
+reconstruct/
+*.ply
+*.log
+
+# Native extension builds
+build/
+dist/
+*.so
+*.egg-info/
+SIBR_viewers/
+
+# Local analysis artefacts
+/tests/
+graphify-out/
+.tools/
+
+# Historical source copies belong in the external archive, not the release.
+*.py.before_*
+*.py.pre_*
+*.py.bak
