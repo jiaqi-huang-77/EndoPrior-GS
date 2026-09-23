@@ -6,9 +6,9 @@ Official implementation of **EndoPrior-GS: Dynamic Endoscopic Reconstruction wit
 
 ## Installation
 
-Requires Linux, an NVIDIA GPU, a CUDA 12.x toolkit (`nvcc`) and a compatible C++ compiler. Our setup uses Python 3.10, PyTorch 2.5.1 with CUDA 12.1, and GCC 12.
+Requires an NVIDIA GPU, a CUDA 12.x toolkit (`nvcc`) and a compatible C++ compiler. Tested on Linux with Python 3.10, PyTorch 2.5.1 with CUDA 12.1, and GCC 12.
 
-Run from the repository root:
+Run from the repository root (Linux):
 
 ```bash
 conda env create -f environment.yml
