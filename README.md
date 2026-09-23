@@ -46,14 +46,7 @@ data/
 
 **SCARED:** use the prepared keyframes and run `train.py` directly.
 
-**StereoMIS:** prepare P2_7 and P2_8 from raw sequences containing the stereo MP4, `StereoCalibration.ini`, `groundtruth.txt` and `masks/`:
-
-```bash
-python -m datasets.stereomis --sequence P2_7 --raw /path/to/raw/P2_7 --output data/stereomis/P2_7
-python -m datasets.stereomis --sequence P2_8 --raw /path/to/raw/P2_8 --output data/stereomis/P2_8
-```
-
-This step downloads Omnidata weights on first use and generates **relative monocular depth, not metric ground truth**. To reuse an existing prepared clip, replace `--raw` with `--prepared` and supply its path. Use a new output directory.
+**StereoMIS:** use the prepared P2_7 and P2_8 sequences containing `images/`, `depth/`, `masks/`, `poses_bounds.npy` and `split.json`, then run `train.py` directly.
 
 ## Training
 
