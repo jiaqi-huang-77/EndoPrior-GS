@@ -4,8 +4,6 @@ Official implementation of **EndoPrior-GS: Dynamic Endoscopic Reconstruction wit
 
 [![EndoPrior-GS method overview](assets/overview.png)](assets/overview.pdf)
 
-[View the pipeline as a PDF](assets/overview.pdf).
-
 ## Installation
 
 Requires Linux, an NVIDIA GPU, a CUDA 12.x toolkit (`nvcc`) and a compatible C++ compiler. Our setup uses Python 3.10, PyTorch 2.5.1 with CUDA 12.1, and GCC 12.
