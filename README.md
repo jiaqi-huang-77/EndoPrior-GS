@@ -85,8 +85,6 @@ python render.py --model_path output/stereomis/P2_7 --skip_train
 
 Use the corresponding output path for the other sequences. Test images are saved in `test/ours_3000/renders/`. Add `--reconstruct` to export reconstructed point clouds, or `-s /new/data/path` if the dataset has moved.
 
-FPS is measured after 10 warm-up renders over 10 repeated passes, excluding data loading, CPU transfer and file saving. Images and videos are exported once.
-
 ## Evaluation
 
 ```bash
@@ -95,7 +93,7 @@ python metrics.py --model_paths output/scared/d1k1
 python metrics.py --model_paths output/stereomis/P2_7
 ```
 
-Results are saved to `results.json` and `per_view.json`. Metrics include PSNR, SSIM, LPIPS, FLIP, depth RMSE and Flow Error; the video split supplies depth temporal instability. Keep video rendering enabled for that metric. Pretrained evaluation weights are downloaded on first use.
+Results are saved to `results.json` and `per_view.json`.
 
 The StereoMIS comparison table uses a separate uniform evaluation protocol; these commands run the repository's standard evaluator.
 
