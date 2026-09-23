@@ -95,8 +95,6 @@ python metrics.py --model_paths output/stereomis/P2_7
 
 Results are saved to `results.json` and `per_view.json`.
 
-The StereoMIS comparison table uses a separate uniform evaluation protocol; these commands run the repository's standard evaluator.
-
 ## Acknowledgements
 
 We thank [EndoGaussian](https://github.com/CUHK-AIM-Group/EndoGaussian), [3D Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting), [4DGaussians](https://github.com/hustvl/4DGaussians) and [K-Planes](https://github.com/sarafridov/K-Planes) for their released code.
