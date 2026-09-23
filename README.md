@@ -13,12 +13,11 @@ Run from the repository root (Linux):
 ```bash
 conda env create -f environment.yml
 conda activate endoprior-gs
-export CC=gcc-12 CXX=g++-12
 python -m pip install --no-build-isolation --no-deps submodules/depth-diff-gaussian-rasterization
 python -m pip install --no-build-isolation --no-deps submodules/simple-knn
 ```
 
-The extension sources are included in this repository. Adjust the compiler names if your CUDA-compatible compiler is installed elsewhere.
+The extension sources are included in this repository.
 
 ## Data preparation
 
