@@ -71,8 +71,6 @@ Use a new `--expname` for each run. The final model (`point_cloud.ply` and `defo
 tensorboard --logdir output
 ```
 
-Hyperparameters and ablations are available through `python train.py --help`, including `--disable_prior_initialisation`, `--disable_prior_density_control`, `--disable_prior_temporal_regularisation` and `--disable_prior_temporal_weighting`.
-
 ## Rendering
 
 Rendering automatically reads the saved configuration:
