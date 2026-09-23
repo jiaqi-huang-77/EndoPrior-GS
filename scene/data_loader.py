@@ -22,8 +22,7 @@ class DataLoader:
 
     def __init__(self, datadir, downsample=1.0, test_every=8, *,
                  use_prior_initialisation=True, initial_point_budget=20_000,
-                 initialise_from_all_frames=True, initial_points_per_frame_min=160,
-                 initial_points_per_frame_max=330, initial_points_ess_ratio=0.20,
+                 initialise_from_all_frames=True,
                  prior_uniform_mix=0.45, prior_erosion_kernel=9,
                  prior_brightness_threshold=0.85, prior_brightness_percentile=97.0,
                  prior_saturation_threshold=0.35, prior_gradient_percentile=99.0,
@@ -36,9 +35,6 @@ class DataLoader:
         self.use_prior_initialisation = use_prior_initialisation
         self.initial_point_budget = initial_point_budget
         self.initialise_from_all_frames = initialise_from_all_frames
-        self.initial_points_per_frame_min = initial_points_per_frame_min
-        self.initial_points_per_frame_max = initial_points_per_frame_max
-        self.initial_points_ess_ratio = initial_points_ess_ratio
         self.prior_uniform_mix = prior_uniform_mix
         self.prior_erosion_kernel = prior_erosion_kernel
         self.prior_brightness_threshold = prior_brightness_threshold
@@ -108,17 +104,6 @@ class DataLoader:
         probability /= probability.sum()
         return probability
 
-    def _automatic_frame_budget(self, probability):
-        effective_sample_size = 1.0 / (np.square(probability).sum() + 1e-12)
-        budget = int(np.ceil(self.initial_points_ess_ratio * effective_sample_size))
-        return int(
-            np.clip(
-                budget,
-                self.initial_points_per_frame_min,
-                self.initial_points_per_frame_max,
-            )
-        )
-
     def _sample_initial_points_from_frame(self, index, frame_budget, rng):
         colour, mask, flattened_mask, camera_points, colours, pose = (
             self._frame_data_for_initialisation(index)
@@ -127,8 +112,6 @@ class DataLoader:
             return None, None
 
         probability = self._sampling_distribution(colour, mask, flattened_mask)
-        if self.initial_point_budget == 0:
-            frame_budget = self._automatic_frame_budget(probability)
 
         sample_count = min(
             frame_budget,
@@ -154,33 +137,16 @@ class DataLoader:
         if not frame_indices:
             raise RuntimeError("No training frames are available for initialisation.")
 
-        automatic_budget = self.initial_point_budget == 0
-        if automatic_budget:
-            base_budget = remainder = 0
-            budget_description = (
-                "automatic ESS budget "
-                f"[{self.initial_points_per_frame_min}, "
-                f"{self.initial_points_per_frame_max}]"
-            )
-        else:
-            base_budget, remainder = divmod(
-                self.initial_point_budget, len(frame_indices)
-            )
-            budget_description = f"global budget {self.initial_point_budget}"
-
+        base_budget, remainder = divmod(self.initial_point_budget, len(frame_indices))
         print(
             f"Initialising Gaussians from {len(frame_indices)} training frames "
-            f"with {budget_description}."
+            f"with global budget {self.initial_point_budget}."
         )
         rng = np.random.default_rng(self.initialisation_seed)
         all_points = []
         all_colours = []
         for frame_number, index in enumerate(frame_indices):
-            frame_budget = (
-                0
-                if automatic_budget
-                else base_budget + int(frame_number < remainder)
-            )
+            frame_budget = base_budget + int(frame_number < remainder)
             points, colours = self._sample_initial_points_from_frame(
                 index, frame_budget, rng
             )
@@ -193,13 +159,6 @@ class DataLoader:
 
         points = np.concatenate(all_points, axis=0)
         colours = np.concatenate(all_colours, axis=0)
-        if not automatic_budget and points.shape[0] > self.initial_point_budget:
-            selected = rng.choice(
-                points.shape[0], size=self.initial_point_budget, replace=False
-            )
-            points = points[selected]
-            colours = colours[selected]
-
         points, colours, normals = self._consolidate_initial_points(points, colours)
         print(f"Initialised {points.shape[0]} points.")
         return points, colours, normals
@@ -216,14 +175,6 @@ class DataLoader:
 
 class ImageDepthDataset(DataLoader):
     """Shared prepared PNG/poses_bounds format for EndoNeRF and StereoMIS."""
-
-    def __init__(self, datadir, downsample=1.0, test_every=8, *,
-                 initial_point_budget=30_000, initialise_from_all_frames=False,
-                 **initialisation):
-        super().__init__(datadir, downsample, test_every,
-                         initial_point_budget=initial_point_budget,
-                         initialise_from_all_frames=initialise_from_all_frames,
-                         **initialisation)
 
     @staticmethod
     def _clip_depth_outliers(depth, depth_path):

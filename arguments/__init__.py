@@ -133,9 +133,6 @@ class ModelParams(ParamGroup):
         self.coarse_only = False
         self.initial_point_budget = 20_000
         self.initialise_from_all_frames = True
-        self.initial_points_per_frame_min = 210
-        self.initial_points_per_frame_max = 430
-        self.initial_points_ess_ratio = 0.26
         self.prior_uniform_mix = 0.45
         self.prior_erosion_kernel = 9
         self.prior_brightness_threshold = 0.85

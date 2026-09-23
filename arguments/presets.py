@@ -9,6 +9,8 @@ from copy import deepcopy
 
 
 _ENDOPRIOR_MODEL = {
+    "initial_point_budget": 20_000,
+    "initialise_from_all_frames": True,
     "prior_uniform_mix": 0.45,
     "prior_erosion_kernel": 9,
     "prior_brightness_threshold": 0.85,
@@ -81,11 +83,6 @@ _PRESETS = {
             **_ENDOPRIOR_MODEL,
             "dataset_type": "endonerf",
             "camera_extent": 10,
-            "initial_point_budget": 0,
-            "initialise_from_all_frames": True,
-            "initial_points_per_frame_min": 210,
-            "initial_points_per_frame_max": 430,
-            "initial_points_ess_ratio": 0.26,
         },
         "OptimizationParams": {
             **_ENDOPRIOR_OPTIMISATION,
@@ -101,8 +98,6 @@ _PRESETS = {
         "ModelParams": {
             **_ENDOPRIOR_MODEL,
             "dataset_type": "scared",
-            "initial_point_budget": 20_000,
-            "initialise_from_all_frames": True,
         },
         "OptimizationParams": {
             **_ENDOPRIOR_OPTIMISATION,
