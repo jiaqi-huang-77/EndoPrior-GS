@@ -21,8 +21,9 @@ class DataLoader:
     image_size = (640, 512)
 
     def __init__(self, datadir, downsample=1.0, test_every=8, *,
-                 use_prior_initialisation=True, initial_point_budget=25_000,
-                 initialise_from_all_frames=True,
+                 use_prior_initialisation=True, initial_point_budget=20_000,
+                 initialise_from_all_frames=True, initial_points_per_frame_min=210,
+                 initial_points_per_frame_max=430, initial_points_ess_ratio=0.26,
                  prior_uniform_mix=0.45, prior_erosion_kernel=9,
                  prior_brightness_threshold=0.85, prior_brightness_percentile=97.0,
                  prior_saturation_threshold=0.35, prior_gradient_percentile=99.0,
@@ -35,6 +36,9 @@ class DataLoader:
         self.use_prior_initialisation = use_prior_initialisation
         self.initial_point_budget = initial_point_budget
         self.initialise_from_all_frames = initialise_from_all_frames
+        self.initial_points_per_frame_min = initial_points_per_frame_min
+        self.initial_points_per_frame_max = initial_points_per_frame_max
+        self.initial_points_ess_ratio = initial_points_ess_ratio
         self.prior_uniform_mix = prior_uniform_mix
         self.prior_erosion_kernel = prior_erosion_kernel
         self.prior_brightness_threshold = prior_brightness_threshold
@@ -104,6 +108,17 @@ class DataLoader:
         probability /= probability.sum()
         return probability
 
+    def _automatic_frame_budget(self, probability):
+        effective_sample_size = 1.0 / (np.square(probability).sum() + 1e-12)
+        budget = int(np.ceil(self.initial_points_ess_ratio * effective_sample_size))
+        return int(
+            np.clip(
+                budget,
+                self.initial_points_per_frame_min,
+                self.initial_points_per_frame_max,
+            )
+        )
+
     def _sample_initial_points_from_frame(self, index, frame_budget, rng):
         colour, mask, flattened_mask, camera_points, colours, pose = (
             self._frame_data_for_initialisation(index)
@@ -112,6 +127,8 @@ class DataLoader:
             return None, None
 
         probability = self._sampling_distribution(colour, mask, flattened_mask)
+        if self.initial_point_budget == 0:
+            frame_budget = self._automatic_frame_budget(probability)
 
         sample_count = min(
             frame_budget,
@@ -137,10 +154,18 @@ class DataLoader:
         if not frame_indices:
             raise RuntimeError("No training frames are available for initialisation.")
 
-        base_budget, remainder = divmod(self.initial_point_budget, len(frame_indices))
+        if self.initial_point_budget == 0:
+            base_budget = remainder = 0
+            budget_description = (
+                f"ESS budget [{self.initial_points_per_frame_min}, "
+                f"{self.initial_points_per_frame_max}] per frame"
+            )
+        else:
+            base_budget, remainder = divmod(self.initial_point_budget, len(frame_indices))
+            budget_description = f"global budget {self.initial_point_budget}"
         print(
             f"Initialising Gaussians from {len(frame_indices)} training frames "
-            f"with global budget {self.initial_point_budget}."
+            f"with {budget_description}."
         )
         rng = np.random.default_rng(self.initialisation_seed)
         all_points = []

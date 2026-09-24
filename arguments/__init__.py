@@ -20,6 +20,10 @@ import datasets.scared as scared_dataset
 
 
 _PARAMETER_HELP = {
+    'initial_point_budget': 'Total initial sampling budget; zero uses the per-frame ESS budget.',
+    'initial_points_per_frame_min': 'Minimum samples per frame when using the ESS budget.',
+    'initial_points_per_frame_max': 'Maximum samples per frame when using the ESS budget.',
+    'initial_points_ess_ratio': 'Multiply the effective sample size by this ratio to set the frame budget.',
     'disable_prior_initialisation': 'Ablation: sample initial Gaussians without the texture prior.',
     'disable_prior_density_control': 'Ablation: densify and prune without texture-prior guidance.',
     'disable_prior_temporal_regularisation': 'Ablation: remove the local temporal loss.',
@@ -131,8 +135,11 @@ class ModelParams(ParamGroup):
         self.disable_prior_temporal_weighting = False
         self.camera_extent = 10.0
         self.coarse_only = False
-        self.initial_point_budget = 25_000
+        self.initial_point_budget = 20_000
         self.initialise_from_all_frames = True
+        self.initial_points_per_frame_min = 210
+        self.initial_points_per_frame_max = 430
+        self.initial_points_ess_ratio = 0.26
         self.prior_uniform_mix = 0.45
         self.prior_erosion_kernel = 9
         self.prior_brightness_threshold = 0.85

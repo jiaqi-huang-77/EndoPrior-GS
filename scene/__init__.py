@@ -24,7 +24,7 @@ from utils.graphics_utils import BasicPointCloud, getWorld2View2
 
 def _initialisation_arguments(args):
     prior_policy = arguments.prior_component_policy(args)
-    return {
+    initialisation = {
         "use_prior_initialisation": prior_policy.initialisation,
         "initial_point_budget": args.initial_point_budget,
         "initialise_from_all_frames": args.initialise_from_all_frames,
@@ -36,6 +36,13 @@ def _initialisation_arguments(args):
         "prior_gradient_percentile": args.prior_gradient_percentile,
         "initialisation_seed": args.initialisation_seed,
     }
+    if args.initial_point_budget == 0:
+        initialisation.update(
+            initial_points_per_frame_min=args.initial_points_per_frame_min,
+            initial_points_per_frame_max=args.initial_points_per_frame_max,
+            initial_points_ess_ratio=args.initial_points_ess_ratio,
+        )
+    return initialisation
 
 
 def _load_dataset(args):
