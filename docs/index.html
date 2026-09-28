@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EndoPrior-GS: Dynamic Endoscopic Reconstruction with a Joint Texture Prior.">
+  <title>EndoPrior-GS · ACCV 2026</title>
+  <link rel="canonical" href="https://jiaqi-huang-77.github.io/EndoPrior-GS/">
+  <meta property="og:title" content="EndoPrior-GS · ACCV 2026">
+  <meta property="og:description" content="Dynamic Endoscopic Reconstruction with a Joint Texture Prior.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jiaqi-huang-77.github.io/EndoPrior-GS/">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <h1><span>EndoPrior-GS:</span> Dynamic Endoscopic Reconstruction<br>with a Joint Texture Prior</h1>
+      <p class="venue">ACCV 2026</p>
+      <ul class="authors" aria-label="Authors">
+        <li><a href="https://orcid.org/0009-0002-6116-0772">Jiaqi Huang</a><sup>1</sup></li>
+        <li><a href="https://www.ncl.ac.uk/engineering/staff/profile/shidongwang.html">Shidong Wang</a><sup>1,*</sup></li>
+        <li><a href="https://www.ncl.ac.uk/computing/people/profile/tongxin.html">Tong Xin</a><sup>2</sup></li>
+        <li><a href="https://www.ncl.ac.uk/engineering/staff/profile/kabitaadhikari.html">Kabita Adhikari</a><sup>1</sup></li>
+      </ul>
+      <p class="corresponding"><sup>*</sup>Corresponding author: <a href="mailto:shidong.wang@ncl.ac.uk">Shidong Wang</a></p>
+      <div class="affiliations">
+        <p><sup>1</sup>School of Engineering, Newcastle University</p>
+        <p><sup>2</sup>School of Computing, Newcastle University</p>
+      </div>
+      <nav class="links" aria-label="Publication links">
+        <a href="assets/paper.pdf">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2.75h8l4 4V21.25H6zM14 2.75v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Paper</span>
+        </a>
+        <a href="https://github.com/jiaqi-huang-77/EndoPrior-GS">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.14.69-3.8-1.34-3.8-1.34-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.23 3.27.94.1-.73.39-1.23.71-1.51-2.51-.29-5.15-1.26-5.15-5.6 0-1.24.44-2.25 1.16-3.04-.11-.29-.5-1.44.11-3 0 0 .95-.3 3.1 1.15a10.74 10.74 0 0 1 5.64 0c2.15-1.46 3.09-1.15 3.09-1.15.62 1.56.23 2.71.12 3 .72.79 1.15 1.8 1.15 3.04 0 4.35-2.64 5.31-5.16 5.59.41.35.77 1.04.77 2.1v3.1c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"/></svg>
+          <span>Code</span>
+        </a>
+      </nav>
+    </header>
+
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>Dynamic endoscopic reconstruction is fundamental to robotic surgery and computer-assisted interventions. While 3D Gaussian Splatting (3DGS) realises real-time rendering, its application to deformable intraoperative environments remains constrained by phantom geometry and varying illuminations. To address these limitations, we introduce EndoPrior-GS, a novel pipeline that explicitly couples frame-extracted vision heuristics and estimated depth maps. EndoPrior-GS derives a joint texture prior from a tool-filtered valid tissue mask, a non-specular photometric filter, and anatomical structural salience, yielding a probability map that guides primitive initialisation and subsequent density control. The prior is further extended to the temporal domain through a texture-aware term that dynamically weighs pairwise primitive contributions during training. We conduct extensive experiments on benchmark datasets EndoNeRF and SCARED, and the obtained results show that our method EndoPrior-GS reduces Flow Error by 27.7% and 25.8% over the representative approaches while preserving competitive rendering quality and real-time rendering speed.</p>
+    </section>
+
+    <section id="method">
+      <h2>Method Overview</h2>
+      <img class="full-figure" src="assets/images/method_overview.png" alt="EndoPrior-GS method overview" loading="eager">
+    </section>
+
+    <section id="comparison">
+      <h2>SOTA Comparison</h2>
+      <img class="full-figure" src="assets/images/sota_comparison.png" alt="Qualitative comparison with state-of-the-art endoscopic reconstruction methods" loading="lazy">
+    </section>
+
+    <section id="ellipsoid-comparison">
+      <h2>Gaussian Primitive Comparison</h2>
+      <div class="image-compare" id="ellipsoid-compare">
+        <img src="assets/images/ours_front_ellipsoid.png" alt="Gaussian primitives produced by EndoPrior-GS">
+        <div class="compare-after"><img src="assets/images/endogaussian_front_ellipsoid.png" alt="Gaussian primitives produced by EndoGaussian"></div>
+        <span class="compare-label label-left">EndoGaussian</span>
+        <span class="compare-label label-right">EndoPrior-GS</span>
+        <div class="compare-line" aria-hidden="true"><span>↔</span></div>
+        <input id="comparison-slider" type="range" min="0" max="100" value="50" aria-label="Ellipsoid comparison slider">
+      </div>
+    </section>
+
+    <section id="video">
+      <h2>Video</h2>
+      <div class="video-grid">
+        <figure><video id="gt-video" muted loop playsinline preload="metadata"><source src="assets/video/gt_video.mp4" type="video/mp4"></video><figcaption>Ground Truth</figcaption></figure>
+        <figure><video id="ours-video" muted loop playsinline preload="metadata"><source src="assets/video/ours_video.mp4" type="video/mp4"></video><figcaption>EndoPrior-GS</figcaption></figure>
+      </div>
+      <div class="controls"><button id="play-toggle" type="button" aria-label="Play comparison videos">Play</button><input id="timeline" aria-label="Video timeline" type="range" min="0" max="1000" value="0"><span id="time">00:00</span></div>
+    </section>
+  </main>
+  <footer>EndoPrior-GS · ACCV 2026</footer>
+  <script src="script.js"></script>
+</body>
+</html>

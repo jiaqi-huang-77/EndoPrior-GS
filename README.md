@@ -1,5 +1,7 @@
 # EndoPrior-GS
 
+[Project page](https://jiaqi-huang-77.github.io/EndoPrior-GS/) · [Paper](https://jiaqi-huang-77.github.io/EndoPrior-GS/assets/paper.pdf)
+
 Official implementation of **EndoPrior-GS: Dynamic Endoscopic Reconstruction with a Joint Texture Prior**, accepted at ACCV 2026.
 
 [![EndoPrior-GS method overview](assets/overview.png)](assets/overview.pdf)

@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="980" viewBox="0 0 1800 980">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0f4f5b"/></marker>
+<linearGradient id="grad_tissue" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#b85e51"/><stop offset="0.45" stop-color="#e2a265"/><stop offset="1" stop-color="#8d3f5d"/></linearGradient>
+<linearGradient id="grad_heat" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#20123a"/><stop offset="0.55" stop-color="#b44b6d"/><stop offset="1" stop-color="#f4d35e"/></linearGradient>
+<linearGradient id="grad_depth" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#121212"/><stop offset="1" stop-color="#eeeeee"/></linearGradient>
+<linearGradient id="grad_rel" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#13102f"/><stop offset="0.5" stop-color="#6d3f99"/><stop offset="1" stop-color="#f3c842"/></linearGradient>
+</defs>
+<rect width="1800" height="980" fill="#ffffff"/>
+<rect x="36" y="42" width="770" height="270" rx="26" fill="#f7fbfc" stroke="#0f4f5b" stroke-width="3" />
+<text x="62" y="84" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" text-anchor="start" fill="#1f2a30">A. Observation reliability</text>
+<rect x="36" y="345" width="770" height="555" rx="26" fill="#fbfaf5" stroke="#0f4f5b" stroke-width="3" />
+<text x="62" y="387" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" text-anchor="start" fill="#1f2a30">B. Reliability-guided initialisation</text>
+<rect x="875" y="42" width="880" height="335" rx="26" fill="#f7fbfc" stroke="#0f4f5b" stroke-width="3" />
+<text x="901" y="84" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" text-anchor="start" fill="#1f2a30">C. Dynamic optimisation</text>
+<rect x="875" y="415" width="880" height="485" rx="26" fill="#fbfaf5" stroke="#0f4f5b" stroke-width="3" />
+<text x="901" y="457" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" text-anchor="start" fill="#1f2a30">D. Reliability-aware density control</text>
+<text x="135.0" y="133" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Input frame</text>
+<rect x="80" y="145" width="110" height="92" rx="0" fill="url(#grad_tissue)" stroke="#222" stroke-width="1.5" />
+<path d="M88,204.8 C107.5,168.0 129.5,223.2 182,177.2" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<text x="285.0" y="133" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Tissue mask</text>
+<rect x="235" y="145" width="100" height="92" rx="0" fill="#101010" stroke="#222" stroke-width="1.5" />
+<ellipse cx="287.0" cy="192.84" rx="35.0" ry="34.96" fill="#f4f4f4"/>
+<text x="430.0" y="133" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Structure cue</text>
+<rect x="380" y="145" width="100" height="92" rx="0" fill="url(#grad_heat)" stroke="#222" stroke-width="1.5" />
+<path d="M388,204.8 C405.0,168.0 425.0,223.2 472,177.2" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<text x="575.0" y="133" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Highlight penalty</text>
+<rect x="525" y="145" width="100" height="92" rx="0" fill="url(#grad_rel)" stroke="#222" stroke-width="1.5" />
+<path d="M533,204.8 C550.0,168.0 570.0,223.2 617,177.2" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<text x="720.0" y="133" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Reliability map</text>
+<rect x="670" y="145" width="100" height="92" rx="0" fill="url(#grad_rel)" stroke="#222" stroke-width="1.5" />
+<path d="M678,204.8 C695.0,168.0 715.0,223.2 762,177.2" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<line x1="195" y1="191" x2="230" y2="191" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<line x1="340" y1="191" x2="375" y2="191" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<line x1="485" y1="191" x2="520" y2="191" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<line x1="630" y1="191" x2="665" y2="191" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="430" y="278" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" text-anchor="middle" fill="#1f2a30">valid tissue x structure x non-highlight</text>
+<text x="147.5" y="458" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Sampling probability</text>
+<rect x="80" y="470" width="135" height="96" rx="0" fill="url(#grad_rel)" stroke="#222" stroke-width="1.5" />
+<path d="M88,532.4 C113.75,494.0 140.75,551.6 207,503.6" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<text x="242" y="527" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" text-anchor="middle" fill="#1f2a30">+</text>
+<text x="330.0" y="458" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Depth map</text>
+<rect x="270" y="470" width="120" height="96" rx="0" fill="url(#grad_depth)" stroke="#222" stroke-width="1.5" />
+<path d="M278,532.4 C300.0,494.0 324.0,551.6 382,503.6" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<line x1="400" y1="518" x2="455" y2="518" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="465" y="475" width="130" height="86" rx="12" fill="#fff" stroke="#1f6f7a" stroke-width="2" />
+<text x="530.0" y="507.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2a30"><tspan x="530.0" dy="0">3D</tspan><tspan x="530.0" dy="23.0">back-projection</tspan></text>
+<line x1="603" y1="518" x2="640" y2="518" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="650" y="475" width="98" height="86" rx="12" fill="#fff" stroke="#1f6f7a" stroke-width="2" />
+<text x="699.0" y="507.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2a30"><tspan x="699.0" dy="0">Voxel</tspan><tspan x="699.0" dy="23.0">+ SOR</tspan></text>
+<path d="M528 565 C478 650 358 675 245 700" stroke="#0f4f5b" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+<text x="190.0" y="688" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Initial point cloud</text>
+<rect x="95" y="700" width="190" height="130" rx="0" fill="#f8e7dd" stroke="#222" stroke-width="1.5" />
+<circle cx="119.7" cy="739.0" r="5" fill="#f0b26a" opacity="0.88"/>
+<circle cx="129.2" cy="784.5" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="138.7" cy="762.4" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="152.0" cy="746.8" r="5" fill="#f0b26a" opacity="0.88"/>
+<circle cx="155.8" cy="797.5" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="171.0" cy="767.6" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="182.4" cy="731.2" r="5" fill="#f0b26a" opacity="0.88"/>
+<circle cx="193.8" cy="788.4" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="205.2" cy="752.0" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="216.60000000000002" cy="775.4" r="5" fill="#f0b26a" opacity="0.88"/>
+<circle cx="228.0" cy="739.0" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="239.4" cy="791.0" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="250.79999999999998" cy="762.4" r="5" fill="#f0b26a" opacity="0.88"/>
+<circle cx="262.2" cy="778.0" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="188.1" cy="809.2" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="165.3" cy="723.4" r="5" fill="#f0b26a" opacity="0.88"/>
+<circle cx="229.9" cy="723.4" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="142.5" cy="806.6" r="5" fill="#c86f53" opacity="0.88"/>
+<circle cx="209.0" cy="801.4" r="5" fill="#f0b26a" opacity="0.88"/>
+<circle cx="129.2" cy="757.2" r="5" fill="#c86f53" opacity="0.88"/>
+<line x1="302" y1="765" x2="398" y2="765" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="535.0" y="688" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Canonical Gaussians</text>
+<rect x="420" y="700" width="230" height="130" rx="0" fill="#fffaf1" stroke="#222" stroke-width="1.5" />
+<ellipse cx="475.2" cy="752.0" rx="32.2" ry="10.4" transform="rotate(-30 475.2 752.0)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<ellipse cx="507.4" cy="780.6" rx="36.800000000000004" ry="11.7" transform="rotate(18 507.4 780.6)" fill="none" stroke="#9b6bb3" stroke-width="3"/>
+<ellipse cx="546.5" cy="744.2" rx="41.4" ry="10.4" transform="rotate(-18 546.5 744.2)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<ellipse cx="578.7" cy="775.4" rx="34.5" ry="13.0" transform="rotate(28 578.7 775.4)" fill="none" stroke="#9b6bb3" stroke-width="3"/>
+<ellipse cx="530.4" cy="801.4" rx="27.599999999999998" ry="9.100000000000001" transform="rotate(8 530.4 801.4)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<text x="380" y="868" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#65727a">Initial identities are fixed by Gaussian index</text>
+<path d="M665 760 C790 620 835 315 960 250" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="1000.0" y="143" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Canonical set</text>
+<rect x="925" y="155" width="150" height="95" rx="0" fill="#fffaf1" stroke="#222" stroke-width="1.5" />
+<ellipse cx="961.0" cy="193.0" rx="21.000000000000004" ry="7.6000000000000005" transform="rotate(-30 961.0 193.0)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<ellipse cx="982.0" cy="213.9" rx="24.0" ry="8.549999999999999" transform="rotate(18 982.0 213.9)" fill="none" stroke="#9b6bb3" stroke-width="3"/>
+<ellipse cx="1007.5" cy="187.3" rx="27.0" ry="7.6000000000000005" transform="rotate(-18 1007.5 187.3)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<ellipse cx="1028.5" cy="210.1" rx="22.5" ry="9.5" transform="rotate(28 1028.5 210.1)" fill="none" stroke="#9b6bb3" stroke-width="3"/>
+<ellipse cx="997.0" cy="229.10000000000002" rx="18.0" ry="6.65" transform="rotate(8 997.0 229.10000000000002)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<rect x="1110" y="155" width="180" height="95" rx="12" fill="#fff" stroke="#1f6f7a" stroke-width="2" />
+<text x="1200.0" y="191.5" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2a30"><tspan x="1200.0" dy="0">Deformation</tspan><tspan x="1200.0" dy="23.0">MLP + time t</tspan></text>
+<text x="1400.0" y="143" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Current Gaussians</text>
+<rect x="1325" y="155" width="150" height="95" rx="0" fill="#fffaf1" stroke="#222" stroke-width="1.5" />
+<ellipse cx="1361.0" cy="193.0" rx="21.000000000000004" ry="7.6000000000000005" transform="rotate(-30 1361.0 193.0)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<ellipse cx="1382.0" cy="213.9" rx="24.0" ry="8.549999999999999" transform="rotate(18 1382.0 213.9)" fill="none" stroke="#9b6bb3" stroke-width="3"/>
+<ellipse cx="1407.5" cy="187.3" rx="27.0" ry="7.6000000000000005" transform="rotate(-18 1407.5 187.3)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<ellipse cx="1428.5" cy="210.1" rx="22.5" ry="9.5" transform="rotate(28 1428.5 210.1)" fill="none" stroke="#9b6bb3" stroke-width="3"/>
+<ellipse cx="1397.0" cy="229.10000000000002" rx="18.0" ry="6.65" transform="rotate(8 1397.0 229.10000000000002)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<rect x="1512" y="155" width="145" height="95" rx="12" fill="#fff" stroke="#1f6f7a" stroke-width="2" />
+<text x="1584.5" y="191.5" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2a30"><tspan x="1584.5" dy="0">Diff.</tspan><tspan x="1584.5" dy="23.0">rasteriser</tspan></text>
+<line x1="1080" y1="202" x2="1105" y2="202" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<line x1="1295" y1="202" x2="1320" y2="202" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<line x1="1482" y1="202" x2="1507" y2="202" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="995.0" y="293" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">GT</text>
+<rect x="940" y="305" width="110" height="58" rx="0" fill="url(#grad_tissue)" stroke="#222" stroke-width="1.5" />
+<path d="M948,342.7 C967.5,319.5 989.5,354.3 1042,325.3" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<text x="1167.5" y="293" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Rendered RGB</text>
+<rect x="1105" y="305" width="125" height="58" rx="0" fill="url(#grad_tissue)" stroke="#222" stroke-width="1.5" />
+<path d="M1113,342.7 C1136.25,319.5 1161.25,354.3 1222,325.3" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<text x="1347.5" y="293" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Rendered depth</text>
+<rect x="1285" y="305" width="125" height="58" rx="0" fill="url(#grad_depth)" stroke="#222" stroke-width="1.5" />
+<path d="M1293,342.7 C1316.25,319.5 1341.25,354.3 1402,325.3" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<text x="1535" y="335" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" text-anchor="middle" fill="#1f2a30">RGB + depth + motion losses</text>
+<path d="M1400 260 C1320 345 1270 410 1200 495" stroke="#0f4f5b" stroke-width="2.7" fill="none" marker-end="url(#arrow)"/>
+<text x="997.5" y="518" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Frame reliability</text>
+<rect x="930" y="530" width="135" height="92" rx="0" fill="url(#grad_rel)" stroke="#222" stroke-width="1.5" />
+<path d="M938,589.8 C963.75,553.0 990.75,608.2 1057,562.2" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.28"/>
+<text x="1182.5" y="518" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30">Current Gaussians</text>
+<rect x="1115" y="530" width="135" height="92" rx="0" fill="#fffaf1" stroke="#222" stroke-width="1.5" />
+<ellipse cx="1147.4" cy="566.8" rx="18.900000000000002" ry="7.36" transform="rotate(-30 1147.4 566.8)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<ellipse cx="1166.3" cy="587.04" rx="21.6" ry="8.28" transform="rotate(18 1166.3 587.04)" fill="none" stroke="#9b6bb3" stroke-width="3"/>
+<ellipse cx="1189.25" cy="561.28" rx="24.3" ry="7.36" transform="rotate(-18 1189.25 561.28)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<ellipse cx="1208.15" cy="583.36" rx="20.25" ry="9.200000000000001" transform="rotate(28 1208.15 583.36)" fill="none" stroke="#9b6bb3" stroke-width="3"/>
+<ellipse cx="1179.8" cy="601.76" rx="16.2" ry="6.44" transform="rotate(8 1179.8 601.76)" fill="none" stroke="#278b7b" stroke-width="3"/>
+<line x1="1072" y1="576" x2="1110" y2="576" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="1290" y="535" width="160" height="82" rx="12" fill="#fff" stroke="#1f6f7a" stroke-width="2" />
+<text x="1370.0" y="565.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2a30"><tspan x="1370.0" dy="0">Project and</tspan><tspan x="1370.0" dy="23.0">sample score</tspan></text>
+<line x1="1258" y1="576" x2="1285" y2="576" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="1490" y="535" width="200" height="82" rx="12" fill="#fff" stroke="#1f6f7a" stroke-width="2" />
+<text x="1590.0" y="556.2" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30"><tspan x="1590.0" dy="0">Accumulate</tspan><tspan x="1590.0" dy="20.7">per-Gaussian</tspan><tspan x="1590.0" dy="20.7">reliability</tspan></text>
+<line x1="1455" y1="576" x2="1485" y2="576" stroke="#0f4f5b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="1305" y="662" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#65727a">Same Gaussian index is updated across visible views</text>
+<rect x="945" y="725" width="335" height="112" rx="12" fill="#fff" stroke="#4f8f57" stroke-width="2" />
+<text x="1112.5" y="761.2" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30"><tspan x="1112.5" dy="0">Densification modulation</tspan><tspan x="1112.5" dy="20.7">scale screen-space gradients</tspan><tspan x="1112.5" dy="20.7">by Gaussian reliability</tspan></text>
+<rect x="1335" y="725" width="340" height="112" rx="12" fill="#fff" stroke="#c73e3a" stroke-width="2" />
+<text x="1505.0" y="761.2" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#1f2a30"><tspan x="1505.0" dy="0">Conservative pruning</tspan><tspan x="1505.0" dy="20.7">low reliability + weak opacity</tspan><tspan x="1505.0" dy="20.7">or over-large scale</tspan></text>
+<path d="M1580 620 C1540 675 1480 700 1505 720" stroke="#0f4f5b" stroke-width="2.4" fill="none" marker-end="url(#arrow)"/>
+<path d="M1570 620 C1440 680 1185 690 1115 720" stroke="#0f4f5b" stroke-width="2.4" fill="none" marker-end="url(#arrow)"/>
+<rect x="1175" y="855" width="280" height="58" rx="12" fill="#fff" stroke="#1f6f7a" stroke-width="2" />
+<text x="1315.0" y="884.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1f2a30">Updated Gaussian set</text>
+<path d="M1115 838 C1160 852 1190 852 1210 855" stroke="#0f4f5b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M1500 838 C1450 852 1430 852 1410 855" stroke="#0f4f5b" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M1310 855 C1085 640 980 435 1010 255" stroke="#0f4f5b" stroke-width="2.4" fill="none" marker-end="url(#arrow)"/>
+<path d="M730 237 C850 330 910 430 995 530" stroke="#6d4aa2" stroke-width="2.2" fill="none" marker-end="url(#arrow)" stroke-dasharray="8 8"/>
+<text x="830" y="405" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" text-anchor="middle" fill="#6d4aa2"><tspan x="830" dy="0">per-frame</tspan><tspan x="830" dy="21.849999999999998">image reliability</tspan></text>
+</svg>
